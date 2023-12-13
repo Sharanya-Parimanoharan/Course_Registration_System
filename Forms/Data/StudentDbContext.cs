@@ -1,0 +1,17 @@
+﻿using System;
+using Forms.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace Forms.Data
+{
+	public class StudentDbContext: DbContext
+    {
+        public StudentDbContext(DbContextOptions options) : base(options)
+		{
+		}
+
+        public DbSet<Student> Students { get; set; }
+
+    }
+}
+

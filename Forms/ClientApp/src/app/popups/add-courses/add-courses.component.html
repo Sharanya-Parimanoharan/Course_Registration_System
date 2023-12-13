@@ -1,0 +1,33 @@
+<form (ngSubmit)="addCourses()" [formGroup]="courses">
+    <h1 mat-dialog-title>Add New Courses</h1>
+
+    <div mat-dialog-content class="style">
+        <mat-form-field>
+            <mat-label>Course Name</mat-label>
+            <input matInput placeholder="Ex. Nougat" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Course Code</mat-label>
+            <input matInput placeholder="" formControlName="code">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Select Department</mat-label>
+            <mat-select formControlName="dept">
+                <mat-option value="Biology" >Biology</mat-option>
+                <mat-option value="Mathematics">Mathematics</mat-option>
+                <mat-option value="Commputer science">Computer Science</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Pre-Requirements</mat-label>
+            <textarea matInput formControlName="pre"></textarea>
+        </mat-form-field>
+        <div class="example-button-row">
+            <button mat-raised-button type="submit">Add</button>
+        </div>
+
+    </div>
+
+</form>

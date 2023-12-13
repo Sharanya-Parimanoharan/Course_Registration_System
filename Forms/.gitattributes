@@ -1,0 +1,6 @@
+path/to/large_file.zip filter=lfs diff=lfs merge=lfs -text
+ClientApp/.angular/cache/17.0.6/angular-webpack/4fec7180373f54114d7db0b46e710b115886c2bf/0.pack filter=lfs diff=lfs merge=lfs -text
+ClientApp/.angular/cache/17.0.6/angular-webpack/7af8d07535269a9dca75161ad5a607d649043b4f/0.pack filter=lfs diff=lfs merge=lfs -text
+ClientApp/.angular/cache/17.0.6/angular-webpack/efccfba99b6833c043bfb044d01520ab5628381c/0.pack filter=lfs diff=lfs merge=lfs -text
+ClientApp/.angular/cache/17.0.6/angular-webpack/c8ed609b3cc2f821867b206e857ab434e8779e74/6.pack filter=lfs diff=lfs merge=lfs -text
+ClientApp/.angular/cache/17.0.6/angular-webpack/c8ed609b3cc2f821867b206e857ab434e8779e74/2.pack filter=lfs diff=lfs merge=lfs -text

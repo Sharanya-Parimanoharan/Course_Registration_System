@@ -1,0 +1,18 @@
+
+.example-button-row {
+  max-width: 400px;
+  margin-left:65px;
+}
+.style{
+    padding-top:20px;
+    background-color:rgba(0,0,0,0.2);
+}
+h1 {
+  text-decoration-color: revert;
+  background-color: rgba(0,0,0,0.5);
+}
+
+button:hover{
+    background-color:ButtonShadow
+}
+

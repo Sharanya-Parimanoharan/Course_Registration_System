@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark px-2">
+
+    <div class="side-nav-button p-2 me-3 text-light" (click)="sideNavToggle()">
+        <i class="fa-solid fa-bars" > </i>
+    </div>
+    <a class="navbar-brand px-4" href="/">Welcome</a>
+    
+        <div class="navbar-collapse">
+            
+        </div>
+    <form class="d-flex me-5">
+        <input class="form-control me-2" type="search" placeholder="search"/>
+        <button class="btn btn-outline-light" type="submit">Search</button>
+    </form>
+
+    <div class="profile-logo dropstart check ">
+        <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+            Profile
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a href="/" class="dropdown-item">LogOut</a></li>
+            <li><a href="/signin/profile" class="dropdown-item" (click)="nav()">Your Profile</a></li>
+
+        </ul>
+    </div>
+</nav>

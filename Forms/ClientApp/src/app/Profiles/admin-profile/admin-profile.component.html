@@ -1,0 +1,121 @@
+<form class="border p-3 rounded-3 perfect-centering"  >
+    <div class="row g-0">
+        <div class="col text-center p-2 mb-3 bg-light">
+            <span class="fs-3">Profile</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col mb-3 ">
+            <label for="firstname" class="form-label">First Name</label>
+            <input matInput [(ngModel)]="firstname" />
+            <div class="form-text text-danger" *ngIf="firstname.errors?.['required'] && (firstname.touched || firstname.dirty)">
+                First Name is Required
+            </div>
+            <div class="form-text text-danger" *ngIf="firstname.errors?.['pattern'] && (firstname.touched || firstname.dirty)">
+                First Name should contain only alphabets
+            </div>
+
+        </div>
+        <div class="col mb-3 ">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input matInput [(ngModel)]="lastname" />
+            <div class="form-text text-danger" *ngIf="lastname.errors?.['required'] && (lastname.touched || lastname.dirty)">
+                Last Name is Required
+            </div>
+            <div class="form-text text-danger" *ngIf="lastname.errors?.['pattern'] && (lastname.touched || lastname.dirty)">
+                Last Name should contain only alphabets
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col mb-3 ">
+            <label for="email" class="form-label">Email Address</label>
+            <input matInput [(ngModel)]="mobile.email" />
+            <div class="form-text text-danger" *ngIf="email.errors?.['required'] && (email.touched || email.dirty)">
+                Email is Required
+            </div>
+            <div class="form-text text-danger" *ngIf="email.errors?.['email'] && (email.touched || email.dirty)">
+                Invalid Email
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col mb-3 ">
+            <label for="mobile" class="form-label">Mobile Number</label>
+            <input matInput [(ngModel)]="admin.mobile" />
+            <div class="form-text text-danger" *ngIf="mobile.errors?.['required'] && (mobile.touched || mobile.dirty)">
+                Mobile Number is Required
+            </div>
+            <div class="form-text text-danger" *ngIf="mobile.errors?.['pattern']  && (mobile.touched || mobile.dirty)">
+                Invalid Mobile Number-Should contain only numbers
+            </div>
+            <div class="form-text text-danger" *ngIf="mobile.errors?.['minlength'] && (mobile.touched || mobile.dirty)">
+                Mobile Number is too short
+            </div>
+            <div class="form-text text-danger" *ngIf="mobile.errors?.['maxlength'] && (mobile.touched || mobile.dirty)">
+                Mobile Number is too long
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+    
+
+    <div class="row">
+        <div class="col mb-3 ">
+            <label for="pwd" class="form-label">Password</label>
+            <input type="password" class="form-control" id="pwd" formControlName="pwd" />
+            <div class="form-text text-danger" *ngIf="pwd.errors?.['required'] && (pwd.touched || pwd.dirty)">
+                Password  is Required
+            </div>
+
+            <div class="text-red-400 text-sm" *ngIf="pwd?.dirty">
+
+                <span class="block" [ngClass]="{'text-primary': pwd?.value?.match('^(?=.*[A-Z])')}">At least uppercase letter.</span>
+
+                <span class="block" [ngClass]="{'text-primary': pwd?.value?.match('(?=.*[a-z])')}">At least one lowercase letter.</span>
+
+                <span class="block" [ngClass]="{'text-primary': pwd?.value?.match('(.*[0-9].*)')}">At least one digit.</span>
+
+                <span class="block" [ngClass]="{'text-primary': pwd?.value?.match('(?=.*[!@#$%^&*])')}">At least one special character.</span>
+
+                <span class="block" [ngClass]="{'text-primary': pwd?.value?.match('.{8,}')}">At least 8 characters long.</span>
+
+            </div>
+
+
+        </div>
+        <div class="col mb-3 ">
+            <label for="rpwd" class="form-label">Repeat Password</label>
+            <input type="password" class="form-control" id="rpwd" formControlName="rpwd" />
+
+            <div class="form-text text-danger" *ngIf="rpwd.errors?.['required'] && (rpwd.touched || rpwd.dirty)">
+                Repeat Password is Required
+            </div>
+            <div class="form-text text-danger" [ngStyle]="{'display':repeatPass}">
+                Repeat Password is Invalid
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary" >Save </button>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+
+
+
+</form> 

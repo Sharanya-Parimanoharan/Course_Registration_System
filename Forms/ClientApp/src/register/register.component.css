@@ -1,0 +1,13 @@
+form {
+  width: 500px;
+}
+
+input.ng-invalid.ng-touched {
+  border: red 1px solid;
+}
+.perfect-centering {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}

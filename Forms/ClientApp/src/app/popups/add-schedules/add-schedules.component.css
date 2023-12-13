@@ -1,0 +1,29 @@
+
+button{
+  max-width: 900px;
+  margin-left: 105px;
+}
+
+.style {
+  padding-top: 20px;
+  background-color: rgba(0,0,0,0.2);
+}
+
+h1 {
+  text-decoration-color: revert;
+  background-color: rgba(0,0,0,0.5);
+}
+
+button:hover {
+  background-color: ButtonShadow
+}
+
+body{
+    height:600px;
+}
+.timepicker-overlay{
+    z-index:10000000 !important;
+}
+.timepicker-backdrop-overlay{
+    z-index:10000000 !important;
+}

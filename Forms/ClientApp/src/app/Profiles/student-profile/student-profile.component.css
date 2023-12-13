@@ -1,0 +1,32 @@
+.mat-stepper-horizontal {
+  margin-top: 8px;
+  
+}
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
+
+button:hover{
+    background-color:rgba(0,0,0,0.5);
+}
+
+
+
+.bty {
+  margin-left: 250px;
+  width: 100px;
+}
+
+.btyy {
+  width: 100px;
+}
+
+
+.prf{
+    display:block;
+    padding:2rem;
+    width :700px;
+    border-radius:1rem;
+    margin:3rem auto 0;
+    background-color:rgba(0,0,0,0.6);
+}

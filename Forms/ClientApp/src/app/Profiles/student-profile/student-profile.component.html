@@ -1,0 +1,116 @@
+<div class="container-fluid g-0">
+    <app-nav (sideNavToggled)="sideNavStatus= $event;"></app-nav>
+
+    <main>
+        <app-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open':sideNavStatus}"></app-side-nav>
+        <router-outlet></router-outlet>
+
+    </main>
+</div>
+
+
+<body class="prf">
+
+    <mat-stepper #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+
+                <ng-template matStepLabel>Personal Details</ng-template>
+                <div class="row ">
+                    <div class="col frm">
+                        <mat-form-field [style.width.px]=250>
+                            <mat-label>First Name</mat-label>
+                            <input matInput [(ngModel)]="obj.firstname" formControlName="firstname" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col frm">
+
+                        <mat-form-field [style.width.px]=300>
+                            <mat-label>Last Name</mat-label>
+                            <input matInput placeholder="Last name" [(ngModel)]="obj.lastname" formControlName="lastname" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field [style.width.px]=250>
+                            <mat-label>National ID</mat-label>
+                            <input matInput placeholder="NIC" [(ngModel)]="obj.id" formControlName="nic" required readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field [style.width.px]=300>
+                            <mat-label>Email Address</mat-label>
+                            <input matInput placeholder="Email" formControlName="email" [(ngModel)]="obj.email" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col">
+                        <mat-form-field [style.width.px]=400>
+                            <mat-label>Mobile Number</mat-label>
+                            <input matInput placeholder="mobile" formControlName="mobile" [(ngModel)]="obj.mobile" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field [style.width.px]=400>
+                            <mat-label>Member Since</mat-label>
+                            <input matInput placeholder="member" formControlName="member" [(ngModel)]="obj.member" readonly>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button mat-button class="bty">Change</button>
+
+                    </div>
+                    <div class="col">
+                        <button mat-button class="btyy" (click)="cancel()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+
+
+        <mat-step [stepControl]="secondFormGroup" label="Change Password">
+            <form [formGroup]="secondFormGroup">
+                <div class="row">
+                    <mat-form-field [style.width.%]=50>
+                        <mat-label>New Password</mat-label>
+                        <input matInput formControlName="pwd" placeholder="" [type]="hide? 'password':'text'"
+                               required>
+                        <button mat-icon-button matSuffix (click)="hide=!hide">
+                            <mat-icon>{{hide? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <mat-form-field [style.width.%]=50>
+                    <mat-label>Re-Enter New Password</mat-label>
+                    <input matInput  placeholder=""  [type]="hide? 'password':'text'"
+                           required>
+                    <button mat-icon-button matSuffix (click)="hide=!hide">
+                        <mat-icon>{{hide? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <div style="padding-top:150px">
+                    <button mat-button matStepperPrevious class="bty">Back</button>
+                    <button mat-button matStepperNext class="btyy">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+                <button mat-button (click)="sendUpdate()">Update</button>
+
+            </div>
+        </mat-step>
+    </mat-stepper>
+
+</body>

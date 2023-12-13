@@ -1,0 +1,103 @@
+﻿<Properties StartupConfiguration="{99EF4481-4672-44A6-81B9-F2619D1754F7}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Forms/ClientApp/src/app/Profiles/student-profile/student-profile.component.ts">
+    <Files>
+      <File FileName="Forms/ClientApp/src/app/popups/add-schedules/add-schedules.component.ts" />
+      <File FileName="Forms/ClientApp/src/app/services/course.service.ts" />
+      <File FileName="Forms/ClientApp/src/app/view-courses/view-courses.component.ts" />
+      <File FileName="Forms/Controllers/CoursesController.cs" />
+      <File FileName="Forms/ClientApp/src/app/app.module.ts" />
+      <File FileName="Forms/ClientApp/src/app/side-nav/side-nav.component.ts" />
+      <File FileName="Forms/Controllers/SchedulesController.cs" />
+      <File FileName="Forms/Controllers/StudentController.cs" />
+      <File FileName="Forms/Data/CoursesDbContext.cs" />
+      <File FileName="Forms/ClientApp/src/app/nav/nav.component.ts" />
+      <File FileName="Forms/ClientApp/src/app/nav/nav.component.html" />
+      <File FileName="Forms/ClientApp/src/app/nav-menu/nav-menu.component.ts" />
+      <File FileName="Forms/ClientApp/src/app/nav-menu/nav-menu.component.html" />
+      <File FileName="Forms/ClientApp/src/app/view-courses/view-courses.component.html" />
+      <File FileName="Forms/ClientApp/src/app/side-nav/side-nav.component.html" />
+      <File FileName="Forms/ClientApp/src/app/app.component.html" />
+      <File FileName="Forms/ClientApp/src/app/app.component.ts" />
+      <File FileName="Forms/ClientApp/src/app/app.server.module.ts" />
+      <File FileName="Forms/ClientApp/src/app/home/home.component.ts" />
+      <File FileName="Forms/ClientApp/src/app/home/home.component.html" />
+      <File FileName="Forms/ClientApp/src/app/view-sched/view-sched.component.html" />
+      <File FileName="Forms/ClientApp/src/app/view-sched/view-sched.component.ts" />
+      <File FileName="Forms/ClientApp/src/app/view-sched/view-sched.component.css" />
+      <File FileName="Forms/ClientApp/src/app/view-courses/view-courses.component.css" />
+      <File FileName="Forms/ClientApp/src/app/popups/add-courses/add-courses.component.ts" />
+      <File FileName="Forms/ClientApp/src/app/popups/add-schedules/add-schedules.component.html" />
+      <File FileName="Forms/ClientApp/src/app/popups/add-courses/add-courses.component.html" />
+      <File FileName="Forms/ClientApp/src/app/popups/add-courses/add-courses.component.css" />
+      <File FileName="Forms/ClientApp/src/app/popups/add-schedules/add-schedules.component.css" />
+      <File FileName="Forms/ClientApp/src/app/Profiles/student-profile/student-profile.component.css" />
+      <File FileName="Forms/ClientApp/src/app/Profiles/student-profile/student-profile.component.html" />
+      <File FileName="Forms/ClientApp/src/app/home/home.component.css" />
+      <File FileName="Forms/ClientApp/src/app/Profiles/student-profile/student-profile.component.ts" Line="24" Column="30" />
+      <File FileName="Forms/ClientApp/src/index.html" />
+      <File FileName="Forms/ClientApp/src/app/login/login.component.ts" />
+      <File FileName="Forms/ClientApp/src/app/login/login.component.html" />
+      <File FileName="Forms/ClientApp/src/app/login/login.component.css" />
+      <File FileName="Forms/ClientApp/src/app/nav/nav.component.css" />
+      <File FileName="Forms/Data/StudentDbContext.cs" />
+      <File FileName="Forms/Models/Student.cs" />
+      <File FileName="Forms/Models/login.cs" />
+      <File FileName="Forms/Models/Courses.cs" />
+      <File FileName="Forms/ClientApp/src/register/register.component.ts" />
+      <File FileName="Forms/ClientApp/src/register/register.component.html" />
+      <File FileName="Forms/ClientApp/src/app/services/auth.service.ts" />
+      <File FileName="Forms/ClientApp/src/app/services/auth.guard.ts" />
+      <File FileName="Forms/Models/CourseSchedules.cs" />
+      <File FileName="Forms/Models/JwtService.cs" />
+      <File FileName="Forms/Models/Schedules.cs" />
+      <File FileName="Forms/Program.cs" />
+      <File FileName="Forms/package.json" />
+      <File FileName="Forms/appsettings.json" />
+      <File FileName="Forms/Data/Migrations/20231205152422_Database.cs" />
+      <File FileName="Forms/Data/Migrations/20231208104737_DatabaseCourse.cs" />
+      <File FileName="Forms/Data/Migrations/20231211031022_ManyToMany.cs" />
+      <File FileName="Forms/Data/Migrations/20231211035945_ManyToManyChangeOnDelete.cs" />
+      <File FileName="Forms/Data/Migrations/20231211043658_ManyToManyChangeOnDeletes.cs" />
+      <File FileName="Forms/Data/Migrations/20231211104504_ChangeYear.cs" />
+      <File FileName="Forms/Data/Migrations/20231212105338_ChangeDeadAddRoles.cs" />
+      <File FileName="Forms/ClientApp/package.json" />
+      <File FileName="Forms/ClientApp/karma.conf.js" />
+      <File FileName="Forms/ClientApp/proxy.conf.js" />
+      <File FileName="Forms/ClientApp/src/app/Profiles/admin-profile/admin-profile.component.html" />
+      <File FileName="Forms/ClientApp/src/app/Profiles/admin-profile/admin-profile.component.ts" />
+      <File FileName="Forms/ClientApp/src/app/Profiles/admin-profile/admin-profile.component.css" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Forms">
+            <Node name="Forms" expanded="True">
+              <Node name="ClientApp" expanded="True">
+                <Node name="src" expanded="True">
+                  <Node name="app" expanded="True">
+                    <Node name="popups" expanded="True">
+                      <Node name="add-schedules" expanded="True" />
+                    </Node>
+                    <Node name="Profiles" expanded="True">
+                      <Node name="student-profile" expanded="True" />
+                    </Node>
+                    <Node name="services" expanded="True" />
+                    <Node name="view-sched" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Forms PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+</Properties>

@@ -1,0 +1,38 @@
+/*a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}*/
+
+nav{
+    height:100%;
+    width:100%;
+}
+
+.side-nav-button{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.5rem;
+    cursor:pointer;
+}
+
+.side-nav-button:hover{
+    background-color:blueviolet;
+    border-radius:30%
+}
+

@@ -1,0 +1,152 @@
+<div class="container-fluid g-0">
+    <app-nav (sideNavToggled)="sideNavStatus= $event;"></app-nav>
+
+    <main>
+        <app-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open':sideNavStatus}"></app-side-nav>
+        <router-outlet></router-outlet>
+
+    </main>
+</div>
+<body>
+
+
+    <table mat-table class="mat-elevation-z8 demo-table" [dataSource]="schedule">
+
+        <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef>CODE</th>
+            <td mat-cell *matCellDef="let courses">
+                    {{courses.courseId}}
+              
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="instructor">
+            <th mat-header-cell *matHeaderCellDef>Instructor</th>
+            <td mat-cell *matCellDef="let courses">
+                <div *ngIf="!courses.isEdit">
+                    {{courses.instructor}}
+                </div>
+                <div *ngIf="courses.isEdit">
+                    <input matInput [(ngModel)]="courses.instructor" />
+                </div>
+            </td>
+
+        </ng-container>
+
+        <ng-container matColumnDef="day">
+            <th mat-header-cell *matHeaderCellDef>Day</th>
+            <td mat-cell *matCellDef="let courses;let i=index">
+                <div *ngIf="!courses.isEdit">
+                    {{courses.year}}
+                </div>
+                <div *ngIf="courses.isEdit">
+                    <input matInput [(ngModel)]="courses.year" />
+                </div>
+
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="stime">
+            <th mat-header-cell *matHeaderCellDef>Start Time</th>
+            <td mat-cell *matCellDef="let courses;let i=index">
+                <div *ngIf="!courses.isEdit">
+                    {{courses.startTIme}}
+                </div>
+                <div *ngIf="courses.isEdit">
+                    <input matInput [(ngModel)]="courses.startTIme" />
+                </div>
+
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="etime">
+            <th mat-header-cell *matHeaderCellDef>End Time</th>
+            <td mat-cell *matCellDef="let courses;let i=index">
+                <div *ngIf="!courses.isEdit">
+                    {{courses.endTIme}}
+                </div>
+                <div *ngIf="courses.isEdit">
+                    <input matInput [(ngModel)]="courses.endTIme" />
+                </div>
+
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="max">
+            <th mat-header-cell *matHeaderCellDef>Capacity</th>
+            <td mat-cell *matCellDef="let courses;let i=index">
+                <div *ngIf="!courses.isEdit">
+                    {{courses.maxCapacity}}
+                </div>
+                <div *ngIf="courses.isEdit">
+                    <input matInput [(ngModel)]="courses.maxCapacity" />
+                </div>
+
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="current">
+            <th mat-header-cell *matHeaderCellDef>Enrolled</th>
+            <td mat-cell *matCellDef="let courses;let i=index">
+                <div *ngIf="!courses.isEdit">
+                    {{courses.currentEnrollment}}
+                </div>
+                <div *ngIf="courses.isEdit">
+                    <input matInput [(ngModel)]="courses.currentEnrollment" />
+                </div>
+
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="deadLine">
+            <th mat-header-cell *matHeaderCellDef>DeadLine</th>
+            <td mat-cell *matCellDef="let courses;let i=index">
+                <div *ngIf="!courses.isEdit">
+                    {{courses.deadLine}}
+                </div>
+                <div *ngIf="courses.isEdit">
+                    <input matInput [(ngModel)]="courses.deadLine" />
+                </div>
+
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef>DELETE</th>
+            <td mat-cell *matCellDef="let courses"><a class="btn" href="javascript: delete(courses.scheduleId)" (click)="delete(courses.scheduleId)"><i class="fa-solid fa-trash  fa-xl" style="color: #ff2600;"></i></a></td>
+
+        </ng-container>
+        <ng-container matColumnDef="update">
+            <th mat-header-cell *matHeaderCellDef>UPDATE</th>
+            <td mat-cell *matCellDef="let courses">
+                <div *ngIf="!courses.isEdit">
+                    <a class="btn" (click)="onEdit(courses)"><i class="fa-solid fa-pen-to-square fa-xl" style="color: #002e7a;"></i></a>
+                </div>
+                <div *ngIf="courses.isEdit">
+                    <a class="btn" (click)="save(courses)"> <i class="fa-solid fa-file-circle-check fa-xl" style="color: #96d35f;"></i> </a>
+                    <a class="btn" (click)="cancel(courses)"> <i class="fa-solid fa-xmark fa-xl" style="color: #ff4013;"></i> </a>
+
+                </div>
+
+            </td>
+
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <ng-container>
+
+        </ng-container>
+
+
+    </table>
+
+
+</body>

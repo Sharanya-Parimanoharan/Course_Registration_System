@@ -1,0 +1,94 @@
+<form [formGroup]="Schedules" (ngSubmit)="addSchedules()">
+
+    <h1 mat-dialog-title>Add New Schedules</h1>
+
+    <div mat-dialog-content class="style">
+
+        <div class="row">
+            <mat-form-field>
+                <mat-label>Course Code</mat-label>
+                <input matInput placeholder="" formControlName="code">
+            </mat-form-field>
+               
+        </div>
+
+        <div class="row">
+            <mat-form-field>
+                <mat-label>Instructors Name </mat-label>
+                <input matInput placeholder="" formControlName="name">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field>
+                    <mat-label>Select Day</mat-label>
+                    <mat-select formControlName="day">
+                        <mat-option value="Monday">Monday</mat-option>
+                        <mat-option value="Tuesday">Tuesday</mat-option>
+                        <mat-option value="Wednesday">Wednesday</mat-option>
+                        <mat-option value="Thursday">Thursday</mat-option>
+                        <mat-option value="Friday">Friday</mat-option>
+                        <mat-option value="Saturday">Saturday</mat-option>
+                        <mat-option value="Sunday">Sunday</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col">
+                <mat-form-field>
+                    <mat-label>DeadLine</mat-label>
+                    <input matInput type="datetime-local" placeholder="start date" formControlName="deadLine">
+                </mat-form-field>
+            </div>
+
+        </div>
+
+            <div class="row">
+                <div class="col">
+
+                    <mat-form-field>
+                        <mat-label>Start Time</mat-label>
+                        <input matInput
+                               name="selected_time_A"
+                               [ngxMatTimepicker]="pickerA"
+                               placeholder="4:00 PM"
+                               readonly formControlName="sTime" [format]="24" />
+                        <mat-icon matSuffix
+                                  (click)="pickerA.open()">
+                        </mat-icon>
+                    </mat-form-field>
+                    <ngx-mat-timepicker #pickerA></ngx-mat-timepicker>
+                </div>
+                <div class="col">
+
+
+                    <mat-form-field>
+                        <mat-label>End Time</mat-label>
+                        <input matInput
+                               name="selected_time_B"
+                               [ngxMatTimepicker]="pickerB"
+                               placeholder="4:00 PM"
+                               readonly formControlName="eTime" [format]="24" />
+                        <mat-icon matSuffix
+                                  (click)="pickerB.open()">
+                        </mat-icon>
+                    </mat-form-field>
+                    <ngx-mat-timepicker #pickerB></ngx-mat-timepicker>
+                </div>
+            </div>
+            <div class="row">
+                <mat-form-field>
+                    <mat-label>Max Capacity</mat-label>
+                    <input matInput placeholder="" formControlName="capacity">
+                </mat-form-field>
+
+            </div> 
+
+
+            <div  style="margin-left:80px">
+                <button mat-raised-button type="submit" style="width:80px;">Add</button>
+            </div>
+
+        </div>
+</form>
