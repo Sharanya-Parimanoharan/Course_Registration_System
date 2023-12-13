@@ -47,9 +47,8 @@ namespace Forms.Models
 				expires:DateTime.Now.AddMinutes(TokenDuration),
 				signingCredentials:signature
 				);
-
+            //converts jwt tokens to string
             return new JwtSecurityTokenHandler().WriteToken(jwtToken);
-			//converts jwt tokens to string
 		}
 	}
 }

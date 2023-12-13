@@ -9,8 +9,8 @@
             
         </div>
     <form class="d-flex me-5">
-        <input class="form-control me-2" type="search" placeholder="search"/>
-        <button class="btn btn-outline-light" type="submit">Search</button>
+        <input class="form-control me-2" matInput placeholder="search" (input)="searchh(par.value)" #par/>
+        <button class="btn btn-outline-light" type="submit" >Search</button>
     </form>
 
     <div class="profile-logo dropstart check ">
@@ -18,8 +18,8 @@
             Profile
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a href="/" class="dropdown-item">LogOut</a></li>
-            <li><a href="/signin/profile" class="dropdown-item" (click)="nav()">Your Profile</a></li>
+            <li><a role="button" (click)="logOut()" class="dropdown-item">LogOut</a></li>
+            <li><a href="/signin/profile" class="dropdown-item" >Your Profile</a></li>
 
         </ul>
     </div>

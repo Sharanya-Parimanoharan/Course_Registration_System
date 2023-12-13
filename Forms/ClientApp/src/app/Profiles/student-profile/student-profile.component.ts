@@ -12,8 +12,8 @@ import { DatePipe } from '@angular/common';
 export class StudentProfileComponent implements OnInit {
   obj: any;
   sideNavStatus: boolean = false;
-  hide = false;
-
+  hide = true;
+  repeatPass = "none";
   originalDate: any;
   formatted: any;
 
@@ -32,10 +32,17 @@ export class StudentProfileComponent implements OnInit {
 
 
   secondFormGroup = new FormGroup({
-    pwd: new FormControl("")
+    pwd: new FormControl(""),
+    rpwd:new FormControl("")
   });
   isLinear = false;
 
+  get pwd() {
+    return this.secondFormGroup.get("pwd");
+  }
+  get rpwd() {
+    return this.secondFormGroup.get("rpwd");
+  }
 
   ngOnInit() {
     this.obj = this.serv.loadCurrentUser();
@@ -74,6 +81,16 @@ export class StudentProfileComponent implements OnInit {
 
   cancel() {
     this.ngOnInit();
+  }
+
+  RepeatPassCheck() {
+    if (this.pwd.value == this.rpwd.value) {
+      this.repeatPass = 'none';
+      this.sendUpdate();
+    }
+    else {
+      this.repeatPass = 'inLine';
+    }
   }
 
 }

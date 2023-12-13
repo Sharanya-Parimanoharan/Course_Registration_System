@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CourseService } from '../services/course.service';
 
@@ -11,6 +11,10 @@ import { CourseService } from '../services/course.service';
 export class ViewCoursesComponent implements OnInit {
   courses: any;
   sideNavStatus: boolean = false;
+  searchCourses :any;
+
+  @Input() search: string = '';
+
   displayedColumns: string[] = ['code', 'name', 'dept', 'pre','delete','update'];
   constructor(private serv: CourseService) { }
 
@@ -24,6 +28,7 @@ export class ViewCoursesComponent implements OnInit {
   ngOnInit() {
     this.serv.getCourses().subscribe((res) => {
       this.courses = res;
+      this.searchCourses = this.courses;
     });
   }
 
@@ -48,6 +53,7 @@ export class ViewCoursesComponent implements OnInit {
       e.isEdit = false;
     });
     courses.isEdit = true;
+
   }
 
   save(courses: any) { 
@@ -78,6 +84,23 @@ export class ViewCoursesComponent implements OnInit {
   }
   cancel(courses:any) {
     courses.isEdit = false;
+  }
+
+  onSearch(value: string) {
+    value = value.toLowerCase();
+    this.searchCourses = null;
+    if (value.length > 0) {
+      this.searchCourses = this.courses.filter((c) => 
+        c.name.toLowerCase().includes(value) ||
+          c.department.toLowerCase().includes(value)
+      );
+      
+      console.log(this.searchCourses);
+
+    }
+    else {
+      this.ngOnInit();
+    }
   }
 
 }

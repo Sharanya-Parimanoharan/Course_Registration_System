@@ -1,5 +1,5 @@
 <div class="container-fluid g-0">
-    <app-nav (sideNavToggled)="sideNavStatus= $event;"></app-nav>
+    <app-nav (sideNavToggled)="sideNavStatus= $event;" (searchEvent)="onSearch($event)"></app-nav>
 
     <main>
         <app-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open':sideNavStatus}"></app-side-nav>
@@ -10,7 +10,7 @@
 <body>
 
 
-    <table mat-table class="mat-elevation-z8 demo-table" [dataSource]="courses">
+    <table mat-table class="mat-elevation-z8 demo-table" [dataSource]="searchCourses">
 
         <ng-container matColumnDef="code">
             <th mat-header-cell *matHeaderCellDef>CODE</th>

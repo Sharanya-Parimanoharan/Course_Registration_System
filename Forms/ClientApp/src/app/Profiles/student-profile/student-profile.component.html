@@ -64,53 +64,66 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button mat-button class="bty">Change</button>
-
+                        <button mat-button class="btyy" (click)="cancel()">Cancel</button>
                     </div>
                     <div class="col">
-                        <button mat-button class="btyy" (click)="cancel()">Cancel</button>
+                        <button mat-button matStepperNext class="bty">Next</button>
                     </div>
                 </div>
             </form>
         </mat-step>
 
 
-        <mat-step [stepControl]="secondFormGroup" label="Change Password">
+        <mat-step  [stepControl]="secondFormGroup" label="Change Password">
             <form [formGroup]="secondFormGroup">
                 <div class="row">
                     <mat-form-field [style.width.%]=50>
                         <mat-label>New Password</mat-label>
                         <input matInput formControlName="pwd" placeholder="" [type]="hide? 'password':'text'"
-                               required>
+                               >
                         <button mat-icon-button matSuffix (click)="hide=!hide">
                             <mat-icon>{{hide? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                     </mat-form-field>
+                    <div class="text-red-400 text-sm" *ngIf="pwd?.dirty">
+
+                        <span class="block" [ngClass]="{'text-primary': pwd?.value?.match('^(?=.*[A-Z])')}">At least uppercase letter.</span>
+
+                        <span class="block" [ngClass]="{'text-primary': pwd?.value?.match('(?=.*[a-z])')}">At least one lowercase letter.</span>
+
+                        <span class="block" [ngClass]="{'text-primary': pwd?.value?.match('(.*[0-9].*)')}">At least one digit.</span>
+
+                        <span class="block" [ngClass]="{'text-primary': pwd?.value?.match('(?=.*[!@#$%^&*])')}">At least one special character.</span>
+
+                        <span class="block" [ngClass]="{'text-primary': pwd?.value?.match('.{8,}')}">At least 8 characters long.</span>
+
+                    </div>
                 </div>
                 <mat-form-field [style.width.%]=50>
                     <mat-label>Re-Enter New Password</mat-label>
-                    <input matInput  placeholder=""  [type]="hide? 'password':'text'"
-                           required>
+                    <input matInput placeholder="" [type]="hide? 'password':'text'" formControlName="rpwd"
+                           >
                     <button mat-icon-button matSuffix (click)="hide=!hide">
                         <mat-icon>{{hide? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
+                <div class="form-text text-danger" [ngStyle]="{'display':repeatPass}">
+                    Repeat Password is Invalid
+                </div>
+
                 <div style="padding-top:150px">
-                    <button mat-button matStepperPrevious class="bty">Back</button>
-                    <button mat-button matStepperNext class="btyy">Next</button>
+                    <div class="row">
+                        <div class="col">
+                            <button mat-button matStepperPrevious class="btyy">Back</button>
+                        </div>
+                        <div class="col">
+                            <button mat-button (click)="RepeatPassCheck()" class="bty">Update</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </mat-step>
-        <mat-step>
-            <ng-template matStepLabel>Done</ng-template>
-            <p>You are now done.</p>
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
-                <button mat-button (click)="sendUpdate()">Update</button>
-
-            </div>
-        </mat-step>
+        
     </mat-stepper>
 
 </body>

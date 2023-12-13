@@ -10,7 +10,10 @@ import { AuthService } from '../services/auth.service';
 export class NavComponent {
 
   @Output() sideNavToggled = new EventEmitter<boolean>();
+  @Output() searchEvent = new EventEmitter<string>();
+
   menuStatus: boolean = false;
+  search: string = '';
 
   constructor(private auth: AuthService, private router: Router) { }
   isExpanded = false;
@@ -25,7 +28,7 @@ export class NavComponent {
 
   logOut() {
     this.auth.removeToken();
-    //this.router.navigateByUrl('/signin');
+    this.router.navigateByUrl('/signin');
   }
   sideNavToggle() {
     this.menuStatus =  !this.menuStatus;
@@ -36,4 +39,11 @@ export class NavComponent {
   nav() {
     this.router.navigateByUrl("signin/profile");
   }
+
+  searchh(par) {
+    console.log(par);
+    this.search=par
+    this.searchEvent.emit(this.search)
+  }
+
 }
