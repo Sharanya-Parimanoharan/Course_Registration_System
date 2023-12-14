@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { ResetPasswordService } from '../services/reset-password.service';
 
 @Component({
   selector: 'app-login',
@@ -13,11 +14,13 @@ export class LoginComponent implements OnInit {
 
   isUserValid: boolean = false;
   ress: any;
+  resetPassword: string;
+  isValid: boolean;
 
   ngOnInit() {
 
   }
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private resetserv: ResetPasswordService) { }
 
   loginfrm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -48,11 +51,35 @@ export class LoginComponent implements OnInit {
         this.isUserValid = true;
         this.authService.setToken(res);
         this.ress =this.authService.loadCurrentUser();
-        if (this.ress.role == "Admin") {
-          this.router.navigateByUrl('/signin/courses');
-        }
+        this.router.navigateByUrl('/signin/courses');
+        
       }
     }); 
    
+  }
+
+  checkValidEmail(event:string) {
+    const value = event;
+    const pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    this.isValid = pattern.test(value);
+    return this.isValid
+
+  }
+
+  confirm() {
+    console.log(this.resetPassword);
+    
+    this.resetserv.sendResetpasswordLink(this.resetPassword)
+      .subscribe({
+        next: (res) => {
+          alert("Success");
+          this.resetPassword = "";
+          const btn = document.getElementById("closebtn");
+          btn.dispatchEvent(new Event('click'));
+        },
+        error: (err) => {
+          alert("error");
+        }
+      });
   }
 }

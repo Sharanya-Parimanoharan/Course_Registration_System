@@ -1,1 +1,10 @@
-<p>home-student works!</p>
+
+<div class="container-fluid g-0">
+    <app-nav (sideNavToggled)="sideNavStatus= $event;"></app-nav>
+
+    <main>
+        <app-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open':sideNavStatus}"></app-side-nav>
+        <router-outlet></router-outlet>
+
+    </main>
+</div>

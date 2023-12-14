@@ -15,11 +15,12 @@ namespace Forms.Models
 		public string pwd { get; set; }
 		public DateTime memberSince { get; set; }
         public string role { get; set; }
+		public string? resetpasswordToken { get; set; }
+		public DateTime resetpasswordExpiry { get; set; }
+		public Student()
+        {
 
-        public Student()
-		{ 
-
-		}
+        }
 	}
 }
 

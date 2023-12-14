@@ -34,6 +34,7 @@ import { StudentProfileComponent } from './Profiles/student-profile/student-prof
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { DatePipe } from '@angular/common';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { DatePipe } from '@angular/common';
     ViewCoursesComponent,
     CustomTimePipe,
     ViewSchedComponent,
-    StudentProfileComponent
+    StudentProfileComponent,
+    PasswordResetComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -76,7 +78,8 @@ import { DatePipe } from '@angular/common';
       { path: 'signup', component: RegisterComponent },
       { path: 'signin/courses', component: ViewCoursesComponent },
       { path: 'signin/schedules', component: ViewSchedComponent },
-      { path: 'signin/profile', component: StudentProfileComponent }
+      { path: 'signin/profile', component: StudentProfileComponent },
+      { path: 'reset', component: PasswordResetComponent }
     ])
   ],
   providers: [AuthService, DatePipe],

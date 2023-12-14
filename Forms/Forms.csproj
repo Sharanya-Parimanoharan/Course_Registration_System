@@ -29,6 +29,7 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.2" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.14" />
+    <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +42,9 @@
     <None Remove="Data\" />
     <None Remove="ClientApp\src\app\popups\" />
     <None Remove="ClientApp\src\app\Profiles\" />
+    <None Remove="Helpers\" />
+    <None Remove="UtilityService\" />
+    <None Remove="Models\DTO\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,6 +54,9 @@
     <Folder Include="ClientApp\src\app\popups\" />
     <Folder Include="ClientApp\src\app\Profiles\" />
     <Folder Include="ClientApp\src\app\Profiles\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="UtilityService\" />
+    <Folder Include="Models\DTO\" />
   </ItemGroup>
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->

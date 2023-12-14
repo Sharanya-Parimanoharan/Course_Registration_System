@@ -64,7 +64,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button mat-button class="btyy" (click)="cancel()">Cancel</button>
+                        <button mat-button class="btyy" (click)="cancel()">Reset</button>
                     </div>
                     <div class="col">
                         <button mat-button matStepperNext class="bty">Next</button>
@@ -74,13 +74,12 @@
         </mat-step>
 
 
-        <mat-step  [stepControl]="secondFormGroup" label="Change Password">
+        <mat-step [stepControl]="secondFormGroup" label="Change Password">
             <form [formGroup]="secondFormGroup">
                 <div class="row">
                     <mat-form-field [style.width.%]=50>
                         <mat-label>New Password</mat-label>
-                        <input matInput formControlName="pwd" placeholder="" [type]="hide? 'password':'text'"
-                               >
+                        <input matInput formControlName="pwd" placeholder="" [type]="hide? 'password':'text'">
                         <button mat-icon-button matSuffix (click)="hide=!hide">
                             <mat-icon>{{hide? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
@@ -101,8 +100,7 @@
                 </div>
                 <mat-form-field [style.width.%]=50>
                     <mat-label>Re-Enter New Password</mat-label>
-                    <input matInput placeholder="" [type]="hide? 'password':'text'" formControlName="rpwd"
-                           >
+                    <input matInput placeholder="" [type]="hide? 'password':'text'" formControlName="rpwd">
                     <button mat-icon-button matSuffix (click)="hide=!hide">
                         <mat-icon>{{hide? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
@@ -115,6 +113,9 @@
                     <div class="row">
                         <div class="col">
                             <button mat-button matStepperPrevious class="btyy">Back</button>
+                        </div>
+                        <div class="col">
+                            <button mat-button matStepperPrevious (click)="close()">Cancel</button>
                         </div>
                         <div class="col">
                             <button mat-button (click)="RepeatPassCheck()" class="bty">Update</button>

@@ -1,5 +1,5 @@
 <div class="container-fluid g-0">
-    <app-nav (sideNavToggled)="sideNavStatus= $event;"></app-nav>
+    <app-nav (sideNavToggled)="sideNavStatus= $event;" (searchEvent)="onSearch($event)"></app-nav>
 
     <main>
         <app-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open':sideNavStatus}"></app-side-nav>
@@ -10,13 +10,13 @@
 <body>
 
 
-    <table mat-table class="mat-elevation-z8 demo-table" [dataSource]="schedule">
+    <table mat-table class="mat-elevation-z8 demo-table" [dataSource]="searchSched">
 
         <ng-container matColumnDef="code">
             <th mat-header-cell *matHeaderCellDef>CODE</th>
             <td mat-cell *matCellDef="let courses">
-                    {{courses.courseId}}
-              
+                {{courses.courseId}}
+
             </td>
         </ng-container>
 
@@ -117,26 +117,37 @@
         </ng-container>
 
 
-        <ng-container matColumnDef="delete">
-            <th mat-header-cell *matHeaderCellDef>DELETE</th>
-            <td mat-cell *matCellDef="let courses"><a class="btn" href="javascript: delete(courses.scheduleId)" (click)="delete(courses.scheduleId)"><i class="fa-solid fa-trash  fa-xl" style="color: #ff2600;"></i></a></td>
+        <div *ngIf="user.role=='Admin'">
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef>DELETE</th>
+                <td mat-cell *matCellDef="let courses"><a class="btn" href="javascript: delete(courses.scheduleId)" (click)="delete(courses.scheduleId)"><i class="fa-solid fa-trash  fa-xl" style="color: #ff2600;"></i></a></td>
 
-        </ng-container>
-        <ng-container matColumnDef="update">
-            <th mat-header-cell *matHeaderCellDef>UPDATE</th>
-            <td mat-cell *matCellDef="let courses">
-                <div *ngIf="!courses.isEdit">
-                    <a class="btn" (click)="onEdit(courses)"><i class="fa-solid fa-pen-to-square fa-xl" style="color: #002e7a;"></i></a>
-                </div>
-                <div *ngIf="courses.isEdit">
-                    <a class="btn" (click)="save(courses)"> <i class="fa-solid fa-file-circle-check fa-xl" style="color: #96d35f;"></i> </a>
-                    <a class="btn" (click)="cancel(courses)"> <i class="fa-solid fa-xmark fa-xl" style="color: #ff4013;"></i> </a>
+            </ng-container>
+            <ng-container matColumnDef="update">
+                <th mat-header-cell *matHeaderCellDef>UPDATE</th>
+                <td mat-cell *matCellDef="let courses">
+                    <div *ngIf="!courses.isEdit">
+                        <a class="btn" (click)="onEdit(courses)"><i class="fa-solid fa-pen-to-square fa-xl" style="color: #002e7a;"></i></a>
+                    </div>
+                    <div *ngIf="courses.isEdit">
+                        <a class="btn" (click)="save(courses)"> <i class="fa-solid fa-file-circle-check fa-xl" style="color: #96d35f;"></i> </a>
+                        <a class="btn" (click)="cancel(courses)"> <i class="fa-solid fa-xmark fa-xl" style="color: #ff4013;"></i> </a>
 
-                </div>
+                    </div>
 
-            </td>
+                </td>
 
-        </ng-container>
+            </ng-container>
+        </div>
+
+        <div *ngIf="user.role=='User'">
+            <ng-container matColumnDef="Register">
+                <th mat-header-cell *matHeaderCellDef>Register</th>
+                <td mat-cell *matCellDef="let courses"><a class="btn" href="javascript: delete(courses.scheduleId)" (click)="delete(courses.scheduleId)"><i class="fa-solid fa-trash  fa-xl" style="color: #ff2600;"></i></a></td>
+
+            </ng-container>
+
+        </div>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

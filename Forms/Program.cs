@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.Text;
 using Forms.Data;
+using Forms.UtilityService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -17,6 +18,10 @@ builder.Services.AddDbContext<StudentDbContext>(
 builder.Services.AddDbContext<CoursesDbContext>(
     o => o.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddEndpointsApiExplorer();
+
+
+builder.Services.AddScoped<IEmailService, EmailServices>();
+
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(x =>
 {

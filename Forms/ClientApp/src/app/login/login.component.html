@@ -27,7 +27,7 @@
 
     <div class="row g-0">
         <div class="col mb-3">
-            <label for="pwd" class="form=label"><a routerLink="/">Forgot Password ?</a></label>
+            <div class="form-inline fr mt-4"><a type="button" id="forgot" data-bs-toggle="modal" data-bs-target="#exampleModal" class="font-weight-bold">Forgot Password ?</a></div>
 
         </div>
     </div>
@@ -40,3 +40,31 @@
         </div>
     </div>
 </form>
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" area-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="exampleModalLabel"><span style="font-size:29px; font-weight:700">Forget Password?</span><br />
+                 <small>Please Provide your Email We will Send the Reset Link</small></p>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group pt-3">
+                    <div class="input-field"><span class="fa fa-user p-2"></span><input type="text" placeholder="Email" [(ngModel)]="resetPassword" (ngModelChange)="checkValidEmail($event)" /></div>
+                </div>
+                <small *ngIf="!resetPassword" class="text-danger">Email is Required</small>
+                <small *ngIf="!isValid && resetPassword" class="text-danger">Email is Invalid</small>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="closebtn" (click)="confirm()" class="btn btn-primary">Send</button>
+             </div>
+        </div>
+    </div>
+</div>

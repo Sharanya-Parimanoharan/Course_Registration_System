@@ -131,6 +131,12 @@ namespace Forms.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("resetpasswordExpiry")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("resetpasswordToken")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

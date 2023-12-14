@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { DatePipe } from '@angular/common';
+import { DatePipe, Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-profile',
@@ -17,7 +18,7 @@ export class StudentProfileComponent implements OnInit {
   originalDate: any;
   formatted: any;
 
-  constructor(private serv: AuthService, private datePipe: DatePipe) { }
+  constructor(private serv: AuthService, private datePipe: DatePipe, private location: Location) { }
 
   firstFormGroup = new FormGroup({
     firstname: new FormControl("", Validators.required),
@@ -91,6 +92,10 @@ export class StudentProfileComponent implements OnInit {
     else {
       this.repeatPass = 'inLine';
     }
+  }
+
+  close() {
+    this.location.back();
   }
 
 }

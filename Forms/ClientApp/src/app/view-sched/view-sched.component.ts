@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 import { CourseService } from '../services/course.service';
 @Component({
   selector: 'app-view-sched',
@@ -10,8 +11,14 @@ import { CourseService } from '../services/course.service';
 export class ViewSchedComponent implements OnInit {
   schedule: any;
   sideNavStatus: boolean = false;
-  displayedColumns: string[] = ['code','instructor', 'day','stime','etime','max','current','deadLine', 'delete', 'update'];
-  constructor(private serv: CourseService) { }
+  displayedColumn1: string[] = ['code', 'instructor', 'day', 'stime', 'etime', 'max', 'current', 'deadLine', 'delete', 'update'];
+  displayedColumn2: string[] = ['code', 'instructor', 'day', 'stime', 'etime', 'max', 'current', 'deadLine', 'Register'];
+  searchSched: any;
+  user: any;
+  displayedColumns: string[];
+  @Input() search: string = '';
+
+  constructor(private serv: CourseService, private servAuth: AuthService) { }
 
   frm = new FormGroup({
     code: new FormControl(''),
@@ -26,9 +33,19 @@ export class ViewSchedComponent implements OnInit {
   });
 
   ngOnInit() {
+    this.user = this.servAuth.loadCurrentUser();
     this.serv.getSchedules().subscribe((res) => {
       this.schedule = res;
+      this.searchSched = res;
     });
+    if (this.user.role == 'Admin') {
+      this.displayedColumns = this.displayedColumn1;
+    }
+    else {
+      this.displayedColumns = this.displayedColumn2;
+
+    }
+    
   }
 
   delete(code: string) {
@@ -90,6 +107,23 @@ export class ViewSchedComponent implements OnInit {
   }
   cancel(courses: any) {
     courses.isEdit = false;
+  }
+
+  onSearch(value: string) {
+    value = value.toLowerCase();
+    this.searchSched = null;
+    if (value.length > 0) {
+      this.searchSched = this.schedule.filter((c) =>
+        c.instructor.toLowerCase().includes(value) ||
+        c.courseId.toLowerCase().includes(value)
+      );
+
+      console.log(this.searchSched);
+
+    }
+    else {
+      this.ngOnInit();
+    }
   }
 
 }

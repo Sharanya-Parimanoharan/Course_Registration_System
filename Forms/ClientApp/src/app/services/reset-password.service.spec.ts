@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SearchService } from './search.service';
+import { ResetPasswordService } from './reset-password.service';
 
-describe('SearchService', () => {
-  let service: SearchService;
+describe('ResetPasswordService', () => {
+  let service: ResetPasswordService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SearchService);
+    service = TestBed.inject(ResetPasswordService);
   });
 
   it('should be created', () => {
